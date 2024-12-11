@@ -1,3 +1,4 @@
+# Drone Formation Control System
 
 This project enables the control of a drone fleet in a leader-follower architecture. The leader drone follows a predefined route, while the follower drones maintain a specific formation relative to the leader throughout the journey.
 
@@ -37,8 +38,23 @@ This project enables the control of a drone fleet in a leader-follower architect
 
 ---
 
-### Example: Triangle Formation
+### Prerequisites
 
-If you run:
-```bash
-python3 main.py --n 3 --formation triangle
+1. **Python Version**: Python 3.10 is required.
+2. **Dependencies**:
+   - Install all dependencies using the provided `requirements.txt` file:
+     ```bash
+     pip install -r requirements.txt
+     ```
+
+3. **Install `uav_control`:**
+   - This repository relies on `uav_control` for UAV control and simulation.
+   - The `uav_control` repository will be automatically installed via `pip` as part of `requirements.txt`.
+
+---
+
+### About `uav_control`
+
+`uav_control` is an external API used for UAV autonomous flights. It supports both simulated and real-world drone control. The repository is automatically installed when you install the project requirements.
+
+---
