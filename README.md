@@ -1,4 +1,3 @@
-# Drone Formation Control System
 
 This project enables the control of a drone fleet in a leader-follower architecture. The leader drone follows a predefined route, while the follower drones maintain a specific formation relative to the leader throughout the journey.
 
