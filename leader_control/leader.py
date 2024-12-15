@@ -3,7 +3,7 @@ import requests
 def move_leader_to_gps(leader_url, waypoint):
     response = requests.post(f"{leader_url}/movement/go_to_gps/", json={
         "lat": waypoint["lat"],
-        "long": waypoint["long"],  # Cambiado "lon" a "long"
+        "long": waypoint["long"],  
         "alt": waypoint["alt"]
     })
     if response.status_code != 200:
