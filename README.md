@@ -1,13 +1,12 @@
-## UAV Formation Control Project
 
-This project enables the control of a drone fleet in a leader-follower architecture. The leader drone follows a predefined route, while the follower drones maintain a specific formation relative to the leader throughout the journey.
+This project builds upon the functionalities provided by the [UAV_control API](https://github.com/Project-GrADyS/uav_control/tree/main) by implementing a practical example that uses its endpoints to control a fleet of drones. The leader drone follows a predefined route, and the followers maintain specific formations relative to the leader throughout the mission.
 
 ---
 
 ### How It Works
 
 1. **Launching the System:**
-   - Run the program using:
+   - Run the program with the following command:
      ```bash
      python3 main.py --n <number_of_drones> --formation <formation_name>
      ```
@@ -15,21 +14,18 @@ This project enables the control of a drone fleet in a leader-follower architect
      ```bash
      python3 main.py --n 3 --formation triangle
      ```
-     This will:
-     - Launch **1 leader drone** and **2 follower drones**.
-     - The drones will arm and take off to initial positions defined by the selected formation (e.g., `triangle`).
+     This launches one leader drone and two followers, arming them and taking off to positions based on the chosen formation.
 
 2. **Leader Movement:**
-   - The leader drone follows a predefined route specified in the `route` variable in `main.py`.
-   - Each waypoint in the route includes GPS coordinates and altitude.
+   - The leader follows the route specified in the `route` variable in `main.py`.
+   - The route consists of waypoints with GPS coordinates and altitude.
 
 3. **Follower Movement:**
-   - The follower drones maintain the selected formation while following the leader.
-   - Their GPS positions are dynamically adjusted to stay in formation as the leader moves through the waypoints.
+   - Followers adjust their positions dynamically to stay in formation as the leader moves.
 
 4. **Formations:**
-   - Formations determine the relative positions of the drones at all times.
-   - Supported formations include:
+   - The formations define the relative positions of drones during the mission.
+   - Available formations include:
      - `circle`
      - `triangle`
      - `square`
@@ -40,16 +36,15 @@ This project enables the control of a drone fleet in a leader-follower architect
 
 ### Prerequisites
 
-1. **Python Version**: Python 3.10 is required.
-2. **Dependencies**:
-   - Install all dependencies using the provided `requirements.txt` file:
+1. **Python Version:**
+   - Make sure Python 3.10 is installed.
+2. **Dependencies:**
+   - Install the required libraries using the `requirements.txt` file:
      ```bash
      pip install -r requirements.txt
      ```
-
-3. **Install `uav_control`:**
-   - This repository relies on `uav_control` for UAV control and simulation.
-   - The `uav_control` repository will be automatically installed via `pip` as part of `requirements.txt`.
+3. **`uav_control` API:**
+   - This project relies on `uav_control` for drone simulation and control. It is automatically installed with the dependencies.
 
 ---
 
@@ -57,27 +52,21 @@ This project enables the control of a drone fleet in a leader-follower architect
 
 | File Path                               | Description                                                                 |
 |-----------------------------------------|-----------------------------------------------------------------------------|
-| `protocol_testing.py`                   | Handles the initialization of UAVs, setting up leader and follower roles.  |
-| `requirements.txt`                      | Lists project dependencies, including external libraries and repositories. |
-| `main.py`                               | Main entry point for the project; orchestrates drone operations.           |
-| `clean.sh`                              | Script to terminate running drone simulations and related processes.       |
-| `utils/api.py`                          | Contains helper functions for drone commands such as arm, takeoff, etc.    |
-| `utils/auxiliar.py`                     | Provides utilities for GPS coordinate transformations and distance calcs.  |
-| `utils/formations.py`                   | Defines various drone formations (e.g., circle, square, cross).            |
-| `leader_control/leader.py`              | Implements leader drone movement commands.                                 |
-| `follower_control/follower.py`          | Implements follower drone movement commands.                               |
-
----
-
-### About `uav_control`
-
-`uav_control` is an external API used for UAV autonomous flights. It supports both simulated and real-world drone control. The repository is automatically installed when you install the project requirements.
+| `protocol_testing.py`                   | Initializes the UAVs, setting up leader and follower configurations.       |
+| `requirements.txt`                      | Contains the required dependencies.                                        |
+| `main.py`                               | Main script that coordinates the entire mission.                           |
+| `clean.sh`                              | Terminates all running drone simulations and related processes.            |
+| `utils/api.py`                          | Contains functions for drone actions such as arming, takeoff, and location retrieval. |
+| `utils/auxiliar.py`                     | Provides utility functions for GPS conversions and distance calculations.  |
+| `utils/formations.py`                   | Defines drone formations like circle, triangle, and cross.                 |
+| `leader_control/leader.py`              | Handles movement commands for the leader drone.                            |
+| `follower_control/follower.py`          | Handles movement commands for the follower drones.                         |
 
 ---
 
 ### How to Clean Up
 
-Use the `clean.sh` script to terminate all UAV-related processes:
+Run the `clean.sh` script to stop any running simulations or processes:
 
 ```bash
 bash clean.sh
