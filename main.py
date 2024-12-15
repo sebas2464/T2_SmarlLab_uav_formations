@@ -88,7 +88,7 @@ def main():
         follower_target = ned_to_gps(leader_position, relative_position)
         print(f"Seguidor {i} indo para a posisao inicial: {follower_target}")
         move_follower_to_gps(follower_url, follower_target)
-    time.sleep(10)
+    time.sleep(1)
 
     # Executar a missão
     route = [{"lat": -35.3635289, "long": 149.1645755, "alt": 50},{"lat": -35.3635956, "long": 149.1657342, "alt": 50},{"lat": -35.3628629, "long": 149.1651106, "alt": 50}]
@@ -129,7 +129,7 @@ def main():
                 move_follower_to_gps(follower_url, follower_target)
             print("__________________________________________________________________")  
             print("__________________________________________________________________")       
-            time.sleep(15)
+            time.sleep(1)
     print("Missão concluida com sucesso!")
 
 if __name__ == "__main__":
